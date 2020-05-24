@@ -39,6 +39,8 @@ async function getLyrics() {
         submitBtn.style.padding = "7px 15px";
       } else {
         showAlert("Song not found!");
+        song.value = "";
+        artist.value = "";
       }
     }
   }
