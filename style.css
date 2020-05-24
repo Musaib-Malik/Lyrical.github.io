@@ -1,0 +1,100 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #222;
+}
+
+header {
+  text-align: center;
+  padding: 1em;
+  background-color: #42f54b;
+}
+
+.music-icon {
+  font-size: 20px;
+}
+
+#title {
+  font-family: Asap;
+  margin-left: .5em;
+  font-size: 2.5rem;
+  color: midnightblue;
+  font-weight: 700;
+}
+
+.para {
+  margin-top: 0.6em;
+  font-family: Montserrat;
+  font-size: 1rem;
+
+}
+
+.container {
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+
+}
+
+input[type=text],
+input[type=search] {
+  border: none;
+  border: 1px white solid;
+  padding: .5em;
+  margin: 10px;
+  border-radius: 2em;
+  background: none;
+  color: whitesmoke;
+  outline: none;
+  font-family: Montserrat;
+}
+
+.btn-div {
+  text-align: center;
+}
+
+.error {
+  padding: .3em;
+  font-family: sans-serif;
+  background-color: red;
+  text-align: center;
+  color: #222;
+  font-weight: 500;
+  font-family: Asap;
+}
+
+button {
+  text-align: center;
+  padding: 7px 12px;
+  font-family: Asap;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  background-color: #3bbf8f;
+  outline: none;
+  cursor: pointer;
+}
+
+.resultTitle {
+  display: none;
+  margin: 1em;
+  text-decoration: underline;
+  font-family: Asap;
+  color: cornflowerblue;
+}
+
+.output {
+  text-align: center;
+  margin-top: 1em;
+  color: whitesmoke;
+  font-family: Montserrat;
+  line-height: 2em;
+  margin-bottom: 2em;
+}
