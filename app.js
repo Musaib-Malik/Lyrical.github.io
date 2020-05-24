@@ -1,64 +1,64 @@
 // UI Variables
-const song = document.querySelector('#song');
-const artist = document.querySelector('#artist');
-const submitBtn = document.querySelector('.btn');
-const result = document.querySelector('.output');
-const resultTitle = document.querySelector('.resultTitle')
-const container = document.querySelector('.container');
+const song = document.querySelector("#song");
+const artist = document.querySelector("#artist");
+const submitBtn = document.querySelector(".btn");
+const result = document.querySelector(".output");
+const resultTitle = document.querySelector(".resultTitle");
+const container = document.querySelector(".container");
 
 // Event Handler
-submitBtn.addEventListener('click', getLyrics);
+submitBtn.addEventListener("click", getLyrics);
 
 // Get Lyrics
 async function getLyrics() {
-
   // Reload Page
-  if (submitBtn.textContent === 'Reset') {
-    window.location.reload()
-
+  if (submitBtn.textContent === "Reset") {
+    window.location.reload();
   } else {
-
     // Validate Form
-    if (song.value === '' || artist.value === '') {
-      showAlert()
-
+    if (song.value === "" || artist.value === "") {
+      showAlert("Please Fill in all the fields");
     } else {
-
       // Fetch Lyrics
-      const response = await fetch(`https://api.lyrics.ovh/v1/${artist.value}/${song.value}`)
+      const response = await fetch(
+        `https://api.lyrics.ovh/v1/${artist.value}/${song.value}`
+      );
 
-      const data = await response.json();
+      if (response.ok) {
+        const data = await response.json();
 
-      // Display the Result
-      resultTitle.style.display = 'block';
-      result.innerHTML += data.lyrics.replace(new RegExp('\n', 'g'), '<br>');
-      container.style.display = 'none';
+        // Display the Result
+        resultTitle.style.display = "block";
+        result.innerHTML += data.lyrics.replace(new RegExp("\n", "g"), "<br>");
+        container.style.display = "none";
 
-      submitBtn.style.marginTop = '2em'
-      result.style.borderTop = '1px white solid'
+        submitBtn.style.marginTop = "2em";
+        result.style.borderTop = "1px white solid";
 
-      submitBtn.textContent = 'Reset';
-      submitBtn.style.padding = '7px 15px'
+        submitBtn.textContent = "Reset";
+        submitBtn.style.padding = "7px 15px";
+      } else {
+        showAlert("Song not found!");
+      }
     }
   }
 }
 
 // Alert Function
-function showAlert() {
+function showAlert(message) {
+  const errorDiv = document.createElement("div");
 
-  const errorDiv = document.createElement('div');
+  errorDiv.className = "error";
 
-  errorDiv.className = 'error';
+  errorDiv.appendChild(document.createTextNode(message));
 
-  errorDiv.appendChild(document.createTextNode('Please Fill in all the fields'))
+  const wrapper = document.querySelector(".wrapper");
 
-  const wrapper = document.querySelector('.wrapper');
+  const container = document.querySelector(".container");
 
-  const container = document.querySelector('.container');
-
-  wrapper.insertBefore(errorDiv, container)
+  wrapper.insertBefore(errorDiv, container);
 
   setTimeout(() => {
-    document.querySelector('.error').remove()
-  }, 2000)
+    document.querySelector(".error").remove();
+  }, 2000);
 }

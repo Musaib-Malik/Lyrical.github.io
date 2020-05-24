@@ -1,3 +1,4 @@
+
 /* Imports */
 @import url("https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
@@ -95,6 +96,6 @@ button {
   margin-top: 1em;
   color: whitesmoke;
   font-family: Montserrat;
-  line-height: 2em;
+  line-height: 1.5em;
   margin-bottom: 2em;
 }
