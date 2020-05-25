@@ -42,6 +42,7 @@ async function getLyrics() {
         submitBtn.textContent = "Reset";
         submitBtn.style.padding = "7px 15px";
       } else {
+
         spinnerTimeout();
         showAlert("Song not found!");
         song.value = "";
@@ -67,26 +68,26 @@ function showAlert(message) {
 
   setTimeout(() => {
     document.querySelector(".error").remove();
-  }, 2000);
+  }, 2500);
 }
 
 function showSpinner() {
-  submitBtn.style.visibility = 'hidden'
   spinner.style.display = 'block';
+  submitBtn.style.visibility = 'hidden'
 }
 
 function hideSpinner() {
+  spinner.style.display = 'none';
   submitBtn.style.visibility = 'visible'
 
-  spinner.style.display = 'none';
 }
 
 function spinnerTimeout() {
   setTimeout(() => {
     spinner.style.display = 'none';
-  }, 300)
+  }, 1000)
 
   setInterval(() => {
     submitBtn.style.visibility = 'visible'
-  }, 340)
+  }, 1100)
 }
