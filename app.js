@@ -20,12 +20,14 @@ async function getLyrics() {
     if (song.value === "" || artist.value === "") {
       showAlert("Please Fill in all the fields");
     } else {
-      showSpinner();
+      showSpinner()
       // Fetch Lyrics
       const response = await fetch(
         `https://api.lyrics.ovh/v1/${artist.value}/${song.value}`
-      );
-
+      ).catch(err => {
+        hideSpinner()
+        showAlert('Please check your internet connection.')
+      })
       if (response.ok) {
         const data = await response.json();
 
