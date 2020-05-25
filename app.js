@@ -5,6 +5,7 @@ const submitBtn = document.querySelector(".btn");
 const result = document.querySelector(".output");
 const resultTitle = document.querySelector(".resultTitle");
 const container = document.querySelector(".container");
+const spinner = document.querySelector('.spinner');
 
 // Event Handler
 submitBtn.addEventListener("click", getLyrics);
@@ -19,6 +20,7 @@ async function getLyrics() {
     if (song.value === "" || artist.value === "") {
       showAlert("Please Fill in all the fields");
     } else {
+      showSpinner();
       // Fetch Lyrics
       const response = await fetch(
         `https://api.lyrics.ovh/v1/${artist.value}/${song.value}`
@@ -26,6 +28,8 @@ async function getLyrics() {
 
       if (response.ok) {
         const data = await response.json();
+
+        hideSpinner();
 
         // Display the Result
         resultTitle.style.display = "block";
@@ -38,6 +42,7 @@ async function getLyrics() {
         submitBtn.textContent = "Reset";
         submitBtn.style.padding = "7px 15px";
       } else {
+        spinnerTimeout();
         showAlert("Song not found!");
         song.value = "";
         artist.value = "";
@@ -63,4 +68,25 @@ function showAlert(message) {
   setTimeout(() => {
     document.querySelector(".error").remove();
   }, 2000);
+}
+
+function showSpinner() {
+  submitBtn.style.visibility = 'hidden'
+  spinner.style.display = 'block';
+}
+
+function hideSpinner() {
+  submitBtn.style.visibility = 'visible'
+
+  spinner.style.display = 'none';
+}
+
+function spinnerTimeout() {
+  setTimeout(() => {
+    spinner.style.display = 'none';
+  }, 300)
+
+  setInterval(() => {
+    submitBtn.style.visibility = 'visible'
+  }, 340)
 }
