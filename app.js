@@ -73,17 +73,20 @@ function showAlert(message) {
   }, 2500);
 }
 
+// Show Spinner
 function showSpinner() {
   spinner.style.display = 'block';
   submitBtn.style.visibility = 'hidden'
 }
 
+// Hide Spinner
 function hideSpinner() {
   spinner.style.display = 'none';
   submitBtn.style.visibility = 'visible'
 
 }
 
+// Spinner Timeout (In case of error while fetching)
 function spinnerTimeout() {
   setTimeout(() => {
     spinner.style.display = 'none';
