@@ -1,4 +1,3 @@
-
 /* Imports */
 @import url("https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
@@ -34,14 +33,19 @@ header {
   margin-top: 0.6em;
   font-family: Montserrat;
   font-size: 1rem;
+}
 
+.spinner {
+  font-size: 60px;
+  display: none;
+  color: #3bbf8f;
 }
 
 .container {
   margin: 1em;
   display: flex;
   justify-content: center;
-
+  align-items: center;
 }
 
 input[type=text],
@@ -55,6 +59,7 @@ input[type=search] {
   color: whitesmoke;
   outline: none;
   font-family: Montserrat;
+  width: 45%;
 }
 
 .btn-div {
@@ -94,8 +99,55 @@ button {
 .output {
   text-align: center;
   margin-top: 1em;
-  color: whitesmoke;
+  color: white;
   font-family: Montserrat;
   line-height: 1.8em;
   margin-bottom: 2em;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  input[type=text],
+  input[type=search] {
+    width: 20%;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #title {
+    font-size: 3.5rem;
+  }
+
+  .para {
+    font-size: 1.3rem;
+  }
+
+  input[type=text],
+  input[type=search] {
+    font-size: 20px;
+    padding: 11px;
+  }
+
+  button {
+    margin-top: 1em;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1100px) {
+
+  input[type=text],
+  input[type=search] {
+    font-size: 15px;
+    padding: 8px;
+    width: 13%;
+  }
+
+  button {
+    font-size: 1rem;
+  }
 }

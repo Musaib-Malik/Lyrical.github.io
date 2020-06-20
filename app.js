@@ -83,7 +83,6 @@ function showSpinner() {
 function hideSpinner() {
   spinner.style.display = 'none';
   submitBtn.style.visibility = 'visible'
-
 }
 
 // Spinner Timeout (In case of error while fetching)
